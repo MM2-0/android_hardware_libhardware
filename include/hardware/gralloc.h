@@ -323,6 +323,11 @@ typedef struct gralloc_module_t {
             buffer_handle_t handle, int usage,
             int l, int t, int w, int h,
             struct android_ycbcr *ycbcr, int fenceFd);
+    
+#ifdef EXYNOS4_ENHANCEMENTS
+    int (*getphys) (struct gralloc_module_t const* module,
+            buffer_handle_t handle, void** paddr);
+#endif
 
     /* reserved for future use */
     void* reserved_proc[3];
